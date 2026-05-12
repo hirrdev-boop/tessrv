@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>SecureCell | Pencegahan Hack HP</title>
+    <!-- Font Awesome 6 (free) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <!-- Google Fonts: Poppins & Inter -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,600;14..32,700&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(145deg, #f0f4fc 0%, #e6edf7 100%);
+            color: #1a2c3e;
+            scroll-behavior: smooth;
+        }
+
+        /* custom scroll */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #d9e2ef;
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #2c7da0;
+            border-radius: 10px;
+        }
+
+        .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 1.5rem 2rem;
+        }
+
+        /* header / nav */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            background: rgba(255,255,255,0.75);
+            backdrop-filter: blur(12px);
+            border-radius: 60px;
+            padding: 0.8rem 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+            border: 1px solid rgba(255,255,255,0.5);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .logo i {
+            font-size: 2rem;
+            color: #1f6392;
+        }
+        .logo h1 {
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.7rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, #0b4f6c, #2c7da0);
+            background-clip: text;
+            -webkit-background-clip: text;
+            color: transparent;
+        }
+        .developer-badge {
+            background: #1e2f3a20;
+            padding: 0.4rem 1.2rem;
+            border-radius: 40px;
+            font-weight: 500;
+            font-size: 0.9rem;
+            backdrop-filter: blur(4px);
+        }
+        .developer-badge i {
+            margin-right: 6px;
+            color: #2c7da0;
+        }
+
+        /* Hero section */
+        .hero {
+            background: linear-gradient(120deg, #0a2e3f, #134b64);
+            border-radius: 2rem;
+            padding: 2.5rem 2rem;
+            margin-bottom: 3rem;
+            color: white;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 0 20px 35px -12px rgba(0,0,0,0.2);
+        }
+        .hero-text {
+            flex: 1;
+            min-width: 240px;
+        }
+        .hero-text h2 {
+            font-size: 2.2rem;
+            font-weight: 700;
+            font-family: 'Poppins', sans-serif;
+            margin-bottom: 1rem;
+        }
+        .hero-text p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            max-width: 550px;
+            line-height: 1.4;
+        }
+        .hero-icon {
+            font-size: 5rem;
+            background: rgba(255,255,255,0.15);
+            width: 110px;
+            height: 110px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            backdrop-filter: blur(4px);
+        }
+
+        /* cards grid */
+        .section-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin: 2rem 0 1rem 0;
+            position: relative;
+            display: inline-block;
+        }
+        .section-title:after {
+            content: '';
+            position: absolute;
+            bottom: -8px;
+            left: 0;
+            width: 60px;
+            height: 4px;
+            background: #2c7da0;
+            border-radius: 4px;
+        }
+        .grid-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+            gap: 1.8rem;
+            margin: 2rem 0 2rem;
+        }
+        .card {
+            background: white;
+            border-radius: 1.5rem;
+            padding: 1.5rem;
+            transition: all 0.25s ease;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.03);
+            border: 1px solid rgba(0,0,0,0.05);
+            cursor: default;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 22px 35px -12px rgba(0, 0, 0, 0.12);
+            border-color: #cbdde9;
+        }
+        .card-icon {
+            font-size: 2.4rem;
+            background: #eef3fc;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 20px;
+            margin-bottom: 1.3rem;
+            color: #1f6392;
+        }
+        .card h3 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin-bottom: 0.7rem;
+        }
+        .card p {
+            color: #2c3e4e;
+            line-height: 1.5;
+            margin-bottom: 1rem;
+        }
+        .badge-tip {
+            background: #eef2fa;
+            padding: 0.3rem 0.8rem;
+            border-radius: 30px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: #1f6392;
+            display: inline-block;
+        }
+
+        /* checklist / best practices */
+        .best-practices {
+            background: #fff;
+            border-radius: 1.8rem;
+            padding: 2rem;
+            margin: 2rem 0;
+            box-shadow: 0 12px 25px rgba(0,0,0,0.05);
+            border: 1px solid #e2edf5;
+        }
+        .flex-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.2rem;
+            margin-top: 1.5rem;
+        }
+        .list-item {
+            flex: 1 1 240px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            background: #f8fafd;
+            padding: 0.8rem 1rem;
+            border-radius: 60px;
+            transition: 0.1s;
+        }
+        .list-item i {
+            font-size: 1.3rem;
+            color: #2c7da0;
+        }
+        .list-item span {
+            font-weight: 500;
+        }
+
+        /* warning / alert section */
+        .alert-warning {
+            background: #fff2e0;
+            border-left: 7px solid #e67e22;
+            border-radius: 1.2rem;
+            padding: 1.5rem;
+            margin: 2rem 0;
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        .alert-warning i {
+            font-size: 2.5rem;
+            color: #e67e22;
+        }
+
+        /* footer */
+        footer {
+            margin-top: 3rem;
+            text-align: center;
+            padding: 1.5rem;
+            border-top: 1px solid #cbdde9;
+            font-size: 0.9rem;
+            color: #2c5a74;
+        }
+
+        /* button & interactive */
+        .btn-ghost {
+            background: transparent;
+            border: 1.5px solid white;
+            padding: 0.6rem 1.2rem;
+            border-radius: 40px;
+            color: white;
+            font-weight: 600;
+            transition: 0.2s;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+        }
+        .btn-ghost:hover {
+            background: rgba(255,255,255,0.2);
+        }
+
+        @media (max-width: 750px) {
+            .container {
+                padding: 1rem;
+            }
+            .navbar {
+                flex-direction: column;
+                gap: 0.7rem;
+                border-radius: 2rem;
+            }
+            .hero-text h2 {
+                font-size: 1.6rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <!-- Navbar dengan nama developer THOHIR -->
+    <div class="navbar">
+        <div class="logo">
+            <i class="fas fa-shield-haltered"></i>
+            <h1>SecureCell</h1>
+        </div>
+        <div class="developer-badge">
+            <i class="fas fa-code"></i> DEVELOPER: <strong>THOHIR</strong> | Security Specialist
+        </div>
+        <div>
+            <i class="fas fa-mobile-alt" style="color: #2c7da0; margin-right: 6px;"></i> <span style="font-weight:500;">#AntiHack</span>
+        </div>
+    </div>
+
+    <!-- Hero -->
+    <div class="hero">
+        <div class="hero-text">
+            <h2><i class="fas fa-shield-virus"></i> Lindungi HP dari Peretasan</h2>
+            <p>Pencegahan lebih baik daripada mengobati. Pelajari langkah konkret mengamankan ponsel Anda dari malware, phishing, dan akses ilegal.</p>
+            <button class="btn-ghost" id="quickTipBtn"><i class="fas fa-lightbulb"></i> Tips Kilat Keamanan</button>
+        </div>
+        <div class="hero-icon">
+            <i class="fas fa-fingerprint"></i>
+        </div>
+    </div>
+
+    <!-- Card utama: ancaman & pencegahan -->
+    <h2 class="section-title"><i class="fas fa-skull-crosswalk"></i> Ancaman & Solusi</h2>
+    <div class="grid-cards">
+        <div class="card">
+            <div class="card-icon"><i class="fas fa-fish"></i></div>
+            <h3>Phishing & Social Engineering</h3>
+            <p>Jangan klik tautan mencurigakan dari SMS, email, atau media sosial. Selalu periksa URL resmi dan waspadai tawaran menggiurkan.</p>
+            <div class="badge-tip"><i class="fas fa-check-circle"></i> Verifikasi 2 langkah</div>
+        </div>
+        <div class="card">
+            <div class="card-icon"><i class="fas fa-wifi"></i></div>
+            <h3>Wi-Fi Publik Berbahaya</h3>
+            <p>Hacker bisa menyadap data via Wi-Fi palsu. Gunakan VPN, matikan auto-connect, dan hindari transaksi sensitif di jaringan umum.</p>
+            <div class="badge-tip"><i class="fas fa-lock"></i> Gunakan VPN terpercaya</div>
+        </div>
+        <div class="card">
+            <div class="card-icon"><i class="fas fa-download"></i></div>
+            <h3>Aplikasi Malware</h3>
+            <p>Hanya unduh dari Google Play atau App Store. Periksa izin aplikasi (akses kamera, kontak, SMS) jangan berlebihan.</p>
+            <div class="badge-tip"><i class="fas fa-shield"></i> Play Protect aktif</div>
+        </div>
+        <div class="card">
+            <div class="card-icon"><i class="fas fa-key"></i></div>
+            <h3>Kata Sandi Lemah</h3>
+            <p>Gunakan password unik dengan kombinasi huruf, angka, simbol. Aktifkan biometrik & jangan gunakan password yang sama di mana-mana.</p>
+            <div class="badge-tip"><i class="fas fa-database"></i> Gunakan Password Manager</div>
+        </div>
+    </div>
+
+    <!-- best practices checklist interaktif -->
+    <div class="best-practices">
+        <h3><i class="fas fa-clipboard-list"></i> ✅ Checklist Keamanan HP (Praktik Terbaik)</h3>
+        <div class="flex-list" id="checklistContainer">
+            <!-- daftar dinamis dengan event listener nanti -->
+        </div>
+        <div style="margin-top: 18px; font-size: 0.85rem; color: #2c6e9e;">
+            <i class="fas fa-info-circle"></i> Klik setiap item untuk menandai sebagai selesai (local storage akan mengingat progresmu)
+        </div>
+    </div>
+
+    <!-- alert khusus tips update -->
+    <div class="alert-warning" id="alertMessage">
+        <i class="fas fa-exclamation-triangle"></i>
+        <div><strong>Waspada Modus Baru:</strong> Serangan SIM Swapping makin marak. Hubungi operator untuk menambahkan PIN ke kartu SIM dan jangan bagikan OTP kepada siapapun.</div>
+    </div>
+
+    <!-- section tambahan: pencegahan hack hp modern -->
+    <h2 class="section-title"><i class="fas fa-microchip"></i> Proteksi Tambahan untuk Semua HP</h2>
+    <div class="grid-cards">
+        <div class="card">
+            <div class="card-icon"><i class="fas fa-sync-alt"></i></div>
+            <h3>Update Rutin</h3>
+            <p>Selalu perbarui sistem operasi & aplikasi. Patch keamanan menambal celah yang dieksploitasi hacker.</p>
+        </div>
+        <div class="card">
+            <div class="card-icon"><i class="fas fa-phone-slash"></i></div>
+            <h3>Blokir Panggilan Spam</h3>
+            <p>Aktifkan fitur "Caller ID & spam protection" di aplikasi telepon, hindari callback nomor tidak dikenal.</p>
+        </div>
+        <div class="card">
+            <div class="card-icon"><i class="fas fa-user-secret"></i></div>
+            <h3>Enkripsi & Remote Wipe</h3>
+            <p>Aktifkan enkripsi perangkat & pastikan fitur "Find My Device" aktif supaya bisa hapus data dari jarak jauh.</p>
+        </div>
+        <div class="card">
+            <div class="card-icon"><i class="fas fa-qrcode"></i></div>
+            <h3>Scan QR Code Hati-hati</h3>
+            <p>Jangan asal scan QR code dari sumber tidak dikenal, bisa redirect ke situs phishing atau unduh malware otomatis.</p>
+        </div>
+    </div>
+
+    <!-- Penutup + developer credit -->
+    <footer>
+        <p><i class="fas fa-shield-alt"></i> Dibangun oleh <strong>THOHIR</strong> — Edukasi Keamanan Siber & Pencegahan Peretasan HP. Semua konten bersifat informatif.</p>
+        <p style="margin-top: 10px;">&copy; 2025 SecureCell | Jaga privasi, amankan data digitalmu.</p>
+    </footer>
+</div>
+
+<script>
+    // Checklist keamanan interaktif (6 item penting)
+    const checklistItems = [
+        "🔄 Update OS & aplikasi secara berkala",
+        "🔐 Aktifkan autentikasi 2 faktor (2FA) untuk akun penting",
+        "📱 Nonaktifkan instalasi dari sumber tidak dikenal (Unknown Sources)",
+        "📧 Jangan buka lampiran email mencurigakan",
+        "📶 Matikan Bluetooth & NFC saat tidak digunakan",
+        "🛡️ Gunakan anti-malware terpercaya (opsional)"
+    ];
+
+    // Simpan status checklist di localStorage
+    let checklistStatus = JSON.parse(localStorage.getItem("securecell_checklist")) || new Array(checklistItems.length).fill(false);
+
+    const checklistContainer = document.getElementById("checklistContainer");
+
+    function renderChecklist() {
+        checklistContainer.innerHTML = "";
+        checklistItems.forEach((item, idx) => {
+            const listDiv = document.createElement("div");
+            listDiv.className = "list-item";
+            listDiv.style.cursor = "pointer";
+            listDiv.style.backgroundColor = checklistStatus[idx] ? "#e1f5e8" : "#f8fafd";
+            listDiv.style.border = checklistStatus[idx] ? "1px solid #2ecc71" : "none";
+            
+            const icon = document.createElement("i");
+            icon.className = checklistStatus[idx] ? "fas fa-check-circle" : "far fa-circle";
+            icon.style.color = checklistStatus[idx] ? "#2ecc71" : "#809ab3";
+            
+            const textSpan = document.createElement("span");
+            textSpan.innerText = item;
+            if(checklistStatus[idx]) textSpan.style.textDecoration = "line-through";
+            textSpan.style.flex = "1";
+            
+            listDiv.appendChild(icon);
+            listDiv.appendChild(textSpan);
+            
+            // event toggle checklist
+            listDiv.addEventListener("click", (e) => {
+                e.stopPropagation();
+                checklistStatus[idx] = !checklistStatus[idx];
+                localStorage.setItem("securecell_checklist", JSON.stringify(checklistStatus));
+                renderChecklist();
+                showFloatingNotif(`✅ ${checklistStatus[idx] ? "Selesai" : "Batalkan"} : ${item.substring(0, 30)}`);
+            });
+            
+            checklistContainer.appendChild(listDiv);
+        });
+    }
+    
+    // notifikasi kecil floating (sederhana)
+    function showFloatingNotif(msg) {
+        let notif = document.createElement("div");
+        notif.innerText = msg;
+        notif.style.position = "fixed";
+        notif.style.bottom = "20px";
+        notif.style.right = "20px";
+        notif.style.backgroundColor = "#1a2c3e";
+        notif.style.color = "white";
+        notif.style.padding = "10px 20px";
+        notif.style.borderRadius = "40px";
+        notif.style.fontSize = "0.85rem";
+        notif.style.zIndex = "999";
+        notif.style.boxShadow = "0 5px 15px rgba(0,0,0,0.2)";
+        notif.style.backdropFilter = "blur(8px)";
+        notif.style.fontWeight = "500";
+        document.body.appendChild(notif);
+        setTimeout(() => { notif.remove(); }, 2000);
+    }
+
+    // Random tips kilat
+    const quickTips = [
+        "🔒 Aktifkan kunci layar minimal PIN 6 digit atau pola kompleks.",
+        "📸 Cek izin aplikasi: apakah kalkulator perlu akses kamera? Cabut!",
+        "📱 Nonaktifkan preview notifikasi di layar kunci untuk privasi.",
+        "🌐 Gunakan DNS pribadi (seperti Cloudflare 1.1.1.1) untuk filtering.",
+        "🚫 Jangan root atau jailbreak HP — rentan terhadap malware.",
+        "🔐 Gunakan authenticator (Google Authenticator) daripada SMS 2FA."
+    ];
+    
+    const quickTipBtn = document.getElementById("quickTipBtn");
+    const alertDiv = document.getElementById("alertMessage");
+    
+    quickTipBtn.addEventListener("click", () => {
+        const randomIndex = Math.floor(Math.random() * quickTips.length);
+        const tip = quickTips[randomIndex];
+        // ubah konten alert sementara menjadi tip fresh, lalu setelah 3 detik kembali ke pesan asli
+        const originalHTML = alertDiv.innerHTML;
+        alertDiv.style.background = "#e8f0fe";
+        alertDiv.style.borderLeftColor = "#2c7da0";
+        alertDiv.innerHTML = `<i class="fas fa-lightbulb" style="color:#f1c40f;"></i><div><strong>💡 Tips Cepat dari THOHIR:</strong> ${tip}</div>`;
+        setTimeout(() => {
+            alertDiv.style.background = "#fff2e0";
+            alertDiv.style.borderLeftColor = "#e67e22";
+            alertDiv.innerHTML = originalHTML;
+        }, 4000);
+        showFloatingNotif("💡 Tip keamanan diterapkan!");
+    });
+    
+    // Menambahkan ringkasan pencegahan hack hp sesuai permintaan: simulasi deteksi potensi ancaman (interaktif sederhana)
+    // optional: card tambahan bergaya peringatan cepat
+    const style = document.createElement('style');
+    style.textContent = `
+        .simulate-scan {
+            background: linear-gradient(95deg, #eef2fa, #ffffff);
+            border-radius: 1rem;
+            padding: 1rem 1.5rem;
+            margin: 0.5rem 0 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 1rem;
+            border: 1px solid #c1d9ec;
+        }
+        .scan-btn {
+            background: #2c7da0;
+            border: none;
+            color: white;
+            padding: 10px 24px;
+            border-radius: 40px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+        .scan-btn:hover {
+            background: #1f6392;
+            transform: scale(0.98);
+        }
+    `;
+    document.head.appendChild(style);
+    
+    // Tambahan panel "Pemindaian Keamanan Cepat" sebagai fitur pencegahan interaktif
+    const container = document.querySelector(".container");
+    const scanSection = document.createElement("div");
+    scanSection.className = "simulate-scan";
+    scanSection.innerHTML = `
+        <div><i class="fas fa-shield-haltered" style="font-size: 1.7rem; color:#2c7da0;"></i> <strong style="margin-left:8px;">Mode Pencegahan: Scan Cepat</strong><br><span style="font-size:0.8rem;">Deteksi potensi celah keamanan pada kebiasaan penggunaan HP</span></div>
+        <button class="scan-btn" id="runSecurityScan"><i class="fas fa-search"></i> Jalankan Pemeriksaan</button
+`;
+    // Insert setelah best-practices atau sebelum alert
+    const bestPracticesDiv = document.querySelector(".best-practices");
+    bestPracticesDiv.insertAdjacentElement("afterend", scanSection);
+    
+    const scanButton = document.getElementById("runSecurityScan");
+    scanButton.addEventListener("click", () => {
+        // Simulasi analisa sederhana & berikan saran berdasarkan checklist status dan beberapa indikator
+        let risks = [];
+        if (!checklistStatus[0]) risks.push("⚠️ OS/aplikasi tidak update (kerentanan eksploitasi)");
+        if (!checklistStatus[1]) risks.push("⚠️ 2FA belum aktif untuk akun utama");
+        if (!checklistStatus[2]) risks.push("⚠️ Sumber tidak dikenal masih aktif (risiko malware)");
+        if (!checklistStatus[4]) risks.push("⚠️ Bluetooth/Wi-Fi scanning publik dapat disusupi");
+        
+        let message = "";
+        if (risks.length === 0) {
+            message = "✅ Selamat! HP-mu dalam kondisi aman berdasarkan checklist. Tetap waspada dan terus edukasi.";
+        } else {
+            message = "🔍 Hasil scan: ditemukan beberapa potensi risiko:<br>" + risks.map(r => `• ${r}`).join("<br>") + "<br><strong>📌 Selesaikan checklist di atas untuk perlindungan maksimal.</strong>";
+        }
+        // tampilkan modal notifikasi modern
+        const modalDiv = document.createElement("div");
+        modalDiv.style.position = "fixed";
+        modalDiv.style.top = "0";
+        modalDiv.style.left = "0";
+        modalDiv.style.width = "100%";
+        modalDiv.style.height = "100%";
+        modalDiv.style.backgroundColor = "rgba(0,0,0,0.5)";
+        modalDiv.style.display = "flex";
+        modalDiv.style.alignItems = "center";
+        modalDiv.style.justifyContent = "center";
+        modalDiv.style.zIndex = "1000";
+        modalDiv.style.backdropFilter = "blur(5px)";
+        
+        const modalCard = document.createElement("div");
+        modalCard.style.background = "white";
+        modalCard.style.maxWidth = "450px";
+        modalCard.style.width = "90%";
+        modalCard.style.borderRadius = "28px";
+        modalCard.style.padding = "1.8rem";
+        modalCard.style.boxShadow = "0 30px 40px rgba(0,0,0,0.2)";
+        modalCard.style.textAlign = "left";
+        modalCard.innerHTML = `
+            <div style="display:flex; justify-content:space-between; align-items:center;">
+                <h3 style="color:#1f6392;"><i class="fas fa-shield-virus"></i> Laporan Keamanan</h3>
+                <i class="fas fa-times-circle" id="closeModalBtn" style="font-size:1.4rem; cursor:pointer; color:#7f8c8d;"></i>
+            </div>
+            <hr style="margin:0.8rem 0;">
+            <div style="margin:1rem 0; line-height:1.5;">${message}</div>
+            <button id="modalConfirmBtn" style="background:#2c7da0; border:none; padding:10px 20px; border-radius:40px; color:white; font-weight:600; cursor:pointer; margin-top:8px;">Saya Mengerti</button>
+        `;
+        modalDiv.appendChild(modalCard);
+        document.body.appendChild(modalDiv);
+        
+        const closeModal = () => modalDiv.remove();
+        document.getElementById("closeModalBtn")?.addEventListener("click", closeModal);
+        document.getElementById("modalConfirmBtn")?.addEventListener("click", closeModal);
+        modalDiv.addEventListener("click", (e) => {
+            if(e.target === modalDiv) closeModal();
+        });
+        
+        showFloatingNotif("🔎 Pemeriksaan selesai. Lihat rekomendasi.");
+    });
+    
+    // Inisialisasi render checklist setelah DOM dan tambahkan pesan keamanan dinamis dengan nama developer
+    renderChecklist();
+    
+    // Pesan tambahan untuk menonjolkan developer THOHIR (di console juga)
+    console.log("SecureCell - website pencegahan hack HP dikembangkan oleh THOHIR | Edukasi perlindungan ponsel");
+    
+    // Menampilkan pesan interaktif tambahan pada alert awal yang dinamis
+    setInterval(() => {
+        // rotasi tips kecil setiap 20 detik (tapi biar tidak mengganggu, ubah alert dengan gaya halus)
+        const isOriginal = alertDiv.innerHTML.includes("Waspada Modus Baru");
+        if(isOriginal && document.visibilityState === "visible") {
+            const tipsRotate = quickTips[Math.floor(Math.random() * quickTips.length)];
+            if(Math.random() > 0.6) {
+                const backupHtml = alertDiv.innerHTML;
+                alertDiv.style.transition = "0.2s";
+                alertDiv.innerHTML = `<i class="fas fa-info-circle"></i><div>🔐 ${tipsRotate}</div>`;
+                setTimeout(() => {
+                    if(alertDiv.innerHTML.includes(tipsRotate)) alertDiv.innerHTML = backupHtml;
+                }, 5000);
+            }
+        }
+    }, 18000);
+    
+</script>
+</body>
+</html>
+```
